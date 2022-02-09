@@ -3,7 +3,7 @@
 SAE 2.02 - Maths C++
 
 * git add .
-* git commit -m "commentaire"
+* git commit -m "commentaire" -> git commi -m "yeeeeeet"
 * git push
 
 * git clone <lien>
