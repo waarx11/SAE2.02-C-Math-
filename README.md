@@ -11,3 +11,4 @@ SAE 2.02 - Maths C++
 * git pull
 
 * git rm file // supp le file sur le dépot
+
