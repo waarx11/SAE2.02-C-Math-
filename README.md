@@ -12,6 +12,23 @@ SAE 2.02 - Maths C++
 
 * git rm file // supp le file sur le dépot
 
+
+	Objet bois("Bois");
+	Objet baton("Bâton");
+	Objet torche("Torche");
+	Objet epee("Épée");
+	Objet pioche("Pioche");
+	Objet barriere("Barrière");
+	Objet portail("Portail");
+	Objet echelle("Échelle");
+	Objet planche("Planche");
+	Objet charbon("Charbon");
+	Objet bibliotheque("Bibliothèque");
+	Objet coffre("Coffre");
+	Objet porte("Porte");
+	Objet table("Table");
+
+
 	bois.ajouterCraft(baton);
 	bois.ajouterCraft(planche);
 	baton.ajouterCraft(torche);
