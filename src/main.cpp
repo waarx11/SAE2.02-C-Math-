@@ -1,5 +1,6 @@
 #include <iostream>
 #include "reseau.hpp"
+#include "matrice.hpp"
 #include <string>
 using namespace std;
 
@@ -57,8 +58,14 @@ void Matrice1(){
 	bois.afficherSuccessionGlob();
 }
 
+void Matrice2(){
+	Matrice m2;
+	m2.ajouterObjet("e");
+	m2.ajouterObjet("ei");
+}
+
 
 int main(){
-	Matrice1();
+	Matrice2();
 	return 0;
 }

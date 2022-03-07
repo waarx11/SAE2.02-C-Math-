@@ -33,22 +33,22 @@ void Objet::afficherSuccessionGlob(){
 	
 }
 
-// list<Objet> Objet::afficherSuccession(list<Objet> &visited){
-// 	cout << nom << ", " ; 
-// 	// visited.insert(*this);
-// 	for(vector<Objet>::iterator it = listeCraft.begin(); it != listeCraft.end(); it++){
+list<Objet> Objet::afficherSuccession(list<Objet> &visited){
+	cout << nom << ", " ; 
+	// visited.insert(*this);
+	for(vector<Objet>::iterator it = listeCraft.begin(); it != listeCraft.end(); it++){
 		
-// 		list<Objet>::iterator findIter;
-// 		findIter = find(visited.begin(), visited.end(), *it);
-// 		if(findIter != visited.end()) cout << "pas trouvé fdp" << endl;
+		list<Objet>::iterator findIter;
+		findIter = find(visited.begin(), visited.end(), *it);
+		if(findIter != visited.end()) cout << "pas trouvé fdp" << endl;
 		
-// 		//it->afficherSuccession(visited);
+		//it->afficherSuccession(visited);
 		
-// 	}
+	}
 		
-// 	return visited;
+	return visited;
 
-// }
+}
 list<Objet> Objet::afficherSuccession(list<Objet> &visited){
 	cout << nom << ", " ; 
 	visited.push_back(*this);
