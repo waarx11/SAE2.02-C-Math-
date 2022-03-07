@@ -13,7 +13,7 @@ class Objet{
 	std::vector<Objet> listeCraft;
 public:
 	Objet(std::string nom);
-	void ajouterCraft(Objet o);
+	void ajouterCraft(Objet &o);
 	void afficherCraft();
 	void afficherSuccessionGlob();
 	std::list<Objet> afficherSuccession(std::list<Objet> &visited);

@@ -7,7 +7,7 @@ using namespace std;
 
 Objet::Objet(string nom):nom(nom){}
 
-void Objet::ajouterCraft(Objet o){
+void Objet::ajouterCraft(Objet &o){
 	listeCraft.push_back(o);
 }
 
