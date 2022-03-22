@@ -81,6 +81,20 @@
 
 
 // Objet::~Objet(){}
+void Objet::supprimerCraft(Objet *o){
+	for(vector<Objet*>::iterator it = listeCraft.begin(); it != listeCraft.end(); it++){	
+		if( *it == o ){
+			listeCraft.erase(it);
+			cout << "Suppression Craft: " << *this <<" -> " << *o << endl;
+			return;
+		}		
+	}
+	cout << "Cette fabrication n'existe pas !" << endl;
+}
+
+
+
+Objet::~Objet(){}
 
 // ostream& operator<<(ostream& s, Objet& o){
 // 	s << o.nom;
@@ -90,4 +104,38 @@
 // bool operator==(Objet& o1, Objet& o2){
 // 	if (o1.nom==o2.nom) return true;
 // 	return false;
+// }
+bool operator==(Objet& o1, Objet& o2){
+	if (o1.nom==o2.nom) return true;
+	return false;
+}
+
+// ----------------------------------------------------------------------------------------------------------------
+void Objet::afficherSuccessionGlob(){
+   list<Objet*> visited;
+   set<Objet*> craft;
+   cout << "Liste des recettes à partir de "<< nom << ":" << endl;
+   visited.push_back(this);
+   for(vector<Objet*>::iterator it = listeCraft.begin(); it != listeCraft.end(); it++){
+    it->afficherCraftDirect();
+    // it->afficherSuccession(visited);
+   }
+  
+}
+ 
+// list<Objet*> Objet::afficherSuccession(list<Objet*> &visited){
+//    cout << nom << ", " ;
+//    visited.insert(this);
+//    for(vector<Objet*>::iterator it = listeCraft.begin(); it != listeCraft.end(); it++){
+      
+//        list<Objet*>::iterator findIter;
+//        findIter = find(visited.begin(), visited.end(), *it);
+//        if(findIter != visited.end()) cout << "pas trouvé fdp" << endl;
+      
+//        it->afficherSuccession(visited);
+      
+//    }
+      
+//    return visited;
+ 
 // }
