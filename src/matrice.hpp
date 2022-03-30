@@ -15,7 +15,6 @@
 #include <iostream>
 
 class Matrice{
-    public:
     std::vector<std::string> tableauObjet;
     std::vector<std::vector<bool> >matriceCraft;
     public:
