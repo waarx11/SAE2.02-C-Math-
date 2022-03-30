@@ -1,3 +1,9 @@
+/**
+ * @file Reseau1.hpp
+ * @author Verdier Nathan
+ * @brief 
+ * @date 2022-03-30
+ */
 #ifndef RESEAU1_HPP
 #define RESEAU1_HPP
 #include <string>
@@ -12,7 +18,6 @@ class Reseau1{
     public:
         static std::vector<std::string> listCraftIndirectVisited;
         Reseau1();
-        // void ajouterObjet(std::string o);
         void insertCraft(std::string o, std::list<std::string> l1);
         void afficherObjet() const;
         void afficherObjetCraft() const;

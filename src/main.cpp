@@ -1,6 +1,7 @@
 #include <iostream>
 #include "reseau.hpp"
 #include "matrice.hpp" 
+#include "Reseau1.hpp" 
 #include <string>
 using namespace std;
 
@@ -162,16 +163,21 @@ void Exo1(){
 	// d1.supprimerObjet("Bois");
 	// d1.supprimerObjet("Bâton");
 	// d1.supprimerObjet("Bibliothèque");
-	//d1.afficherObjet();
-	//d1.afficherObjetCraft();
+	// d1.afficherObjet();
+	// d1.afficherObjetCraft();
 
-    // d1.appCheminIndirect("Bois");
-    // d1.appCheminIndirect("Pioche");
-    // d1.appCheminIndirect("Charbon");
+    d1.appCheminIndirect("Bois");
+    d1.appCheminIndirect("Bâton");
+    d1.appCheminIndirect("Épée");
+    d1.appCheminIndirect("Pioche");
+    d1.appCheminIndirect("Échelle");
+	d1.appCheminIndirect("Barrière");
+	d1.appCheminIndirect("Planche");
+	d1.appCheminIndirect("Bibliothèque");
+	d1.appCheminIndirect("Coffre");
+	d1.appCheminIndirect("Porte");
+	d1.appCheminIndirect("Table");
 
-	d1.ajouterCraft("Bibliothèque","oui");
-	d1.ajouterCraft("Bibliothèque","oui");
-	d1.ajouterCraft("Bibliothèque","oui");
 	d1.afficherObjetCraftPrec("Bibliothèque");
 }
 

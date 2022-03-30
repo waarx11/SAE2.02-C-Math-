@@ -1,3 +1,9 @@
+/**
+ * @file Reseau1.cpp
+ * @author Verdier Nathan
+ * @brief crée une map d'objet, parcours tout les objet crée, et les attributs, affiche tout les transformation direct et indirect d'un objet 
+ * @date 2022-03-30
+ */
 #include <iostream>
 #include <algorithm>
 #include <string>
@@ -7,15 +13,18 @@ using namespace std;
 
 vector<string> Reseau1::listCraftIndirectVisited;
 
+/**
+ * @brief Constructeur de reseau 1
+ * 
+ */
 Reseau1::Reseau1(){}
 
-// void Direct::ajouterObjet(string o){
-//     vector<string>::iterator it;
-//     it = find(Direct::listObjet.begin(), Direct::listObjet.end(), o);
-//     if (it == Direct::listObjet.end())
-//         Direct::listObjet.push_back(o);
-// }
-
+/**
+ * @brief insert dans une map un string comme key de le map et une liste de string comme attribue de cette map
+ * 
+ * @param o string destiner a devinir la key de la map mapDesTransfo
+ * @param l1 liste de string qui devientdra les attributs de la map mapDesTransfo
+ */
 void Reseau1::insertCraft(string o, list<string> l1)
 {
     list<string>::iterator itfind;
@@ -43,12 +52,20 @@ void Reseau1::insertCraft(string o, list<string> l1)
     }
 }
 
+/**
+ * @brief Affiche tout les objets existant
+ * 
+ */
 void Reseau1::afficherObjet() const
 {
     for (auto it : mapDesTransfo)
         cout << it.first << endl;
 }
 
+/**
+ * @brief affiche tout les objets de la map et fait appel a la fonction afficherCraft en donnant les attribues de chaque objet
+ * 
+ */
 void Reseau1::afficherObjetCraft() const
 {
     for(auto it : mapDesTransfo)
@@ -58,6 +75,11 @@ void Reseau1::afficherObjetCraft() const
     }
 }
 
+/**
+ * @brief affiche un objet et fait appel a la fonction afficherCraft en donnant les attribues de cette objet
+ * 
+ * @param o string
+ */
 void Reseau1::afficherObjetCraftPrec(string o) const
 {
     for(auto it : mapDesTransfo)
@@ -70,12 +92,22 @@ void Reseau1::afficherObjetCraftPrec(string o) const
     }
 }
 
+/**
+ * @brief parcours une liste reçu en paramètre et affiche chaque élément
+ * 
+ * @param l1 liste de string
+ */
 void Reseau1::afficherCraft(list<string> l1) const
 {
     for (auto it : l1)
         cout << "   " << it << endl;
 }
 
+/**
+ * @brief supprime un élément de la map dont la key est égale au string passer en paramètre
+ * 
+ * @param o string, nom de l'objet
+ */
 void Reseau1::supprimerObjet(std::string o)
 {
     map<string,list<string>>::iterator it;
@@ -84,6 +116,11 @@ void Reseau1::supprimerObjet(std::string o)
     cout << "Objet " << o << " supprimer avec succès!"<<endl;
 }
 
+/**
+ * @brief cherche dans la map mapDesTransfo la key qui correspond au string passer en paramètre puis appel la fonction cheminIndirect en lui donnant en paramètre l'attribue de la key
+ * 
+ * @param o string, nom de l'objet
+ */
 void Reseau1::appCheminIndirect(string o)
 {
     for (auto it=mapDesTransfo.begin(); it!=mapDesTransfo.end(); ++it)
@@ -96,6 +133,11 @@ void Reseau1::appCheminIndirect(string o)
     Reseau1::listCraftIndirectVisited = {};
 }
 
+/**
+ * @brief affiche tout les attribut indirect de la map pour chaque élément de la liste
+ * 
+ * @param l1 liste de string 
+ */
 void Reseau1::cheminIndirect(list<string> l1)
 {
     list<string>::iterator itfind;
@@ -137,5 +179,22 @@ void Reseau1::ajouterCraft(std::string obj, std::string const at)
         }
 }
 
+/**
+ * @brief redéfinie l'opérator ==, utiliser dans l'insertion pour les map
+ * 
+ * @param o1 string
+ * @param o2 string 
+ * @return true si les deux string sont égaux
+ * @return false si les deux string ne sont pas égaux
+ */
 bool operator==(string o1, string o2){return o1==o2;}
+
+/**
+ * @brief redéfinie l'opérator <, utiliser dans l'insertion des map pour les triés
+ * 
+ * @param o1 string
+ * @param o2 string
+ * @return true si o1 est inférieur a o2
+ * @return false si les deux string sont égaux ou que o1 est supérieur a o2
+ */
 bool operator<(string o1, string o2){return o1<o2;}
