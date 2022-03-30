@@ -1,8 +1,8 @@
 /**
- * @file reseau.cpp
- * @brief Exercice 3
- * @author Baptiste Bonneau
- * @date 30/03/2022
+ * \file reseau.cpp
+ * \brief Exercice 3
+ * \author Baptiste Bonneau
+ * \date 30/03/2022
 */
 
 #include <iostream>
@@ -13,16 +13,16 @@
 using namespace std;
 
 /**
-  *	@brief Constructeur d'un objet
-  *	@param nom Nom de l'objet
+  *	\brief Constructeur d'un objet
+  *	\param nom Nom de l'objet
 */
 Objet::Objet(string nom):nom(nom){
 	cout << "Création objet: " << nom << endl;
 }
 
 /**
-  *	@brief Ajout d'un craft à la liste des crafts d'un objet
-  *	@param o Adresse d'un Objet
+  *	\brief Ajout d'un craft à la liste des crafts d'un objet
+  *	\param o Adresse d'un Objet
 */
 void Objet::ajouterCraft(Objet *o){
 	cout << "Ajout craft: " << *this << " -> " << *o << endl;
@@ -30,7 +30,7 @@ void Objet::ajouterCraft(Objet *o){
 }
 
 /**
-  *	@brief Affiche les crafts d'un objet
+  *	\brief Affiche les crafts d'un objet
 */
 void Objet::afficherCraftDirect(){
 	cout << "Liste des recettes de " << *this << ": " << endl << "-> ";
@@ -41,16 +41,16 @@ void Objet::afficherCraftDirect(){
 }
 
 /**
-  *	@brief Renvoie la liste des crafts d'un objet
-  *	@return Nouvelle liste des crafts de l'objet
+  *	\brief Renvoie la liste des crafts d'un objet
+  *	\return Nouvelle liste des crafts de l'objet
 */
 vector<Objet*> Objet::getCrafts(){
 	return listeCraft;
 }
 
 /**
-  *	@brief Supprime un objet de la liste des crafts d'un objet
-  *	@param o Objet à supprimer de la liste des crafts
+  *	\brief Supprime un objet de la liste des crafts d'un objet
+  *	\param o Objet à supprimer de la liste des crafts
 */
 void Objet::supprimerCraft(Objet *o){
 	for(vector<Objet*>::iterator it = listeCraft.begin(); it != listeCraft.end(); it++){	
@@ -65,15 +65,15 @@ void Objet::supprimerCraft(Objet *o){
 
 
 /**
-  *	@brief Destructeur d'un objet
+  *	\brief Destructeur d'un objet
 */
 Objet::~Objet(){}
 
 /**
-  *	@brief Redéfinition de l'opérateur d'affichage << 
-  *	@param s Flux 
-  *	@param o Objet à afficher
-  * @return Flux 
+  *	\brief Redéfinition de l'opérateur d'affichage << 
+  *	\param s Flux 
+  *	\param o Objet à afficher
+  * \return Flux 
 */
 ostream& operator<<(ostream& s, Objet& o){
 	s << o.nom;
@@ -81,10 +81,10 @@ ostream& operator<<(ostream& s, Objet& o){
 }
 
 /**
-  *	@brief Redéfinition de l'opérateur d'égalité == 
-  *	@param o1 Objet 
-  *	@param o2 Objet
-  * @return true Si les deux objets sont égaux, false sinon
+  *	\brief Redéfinition de l'opérateur d'égalité == 
+  *	\param o1 Objet 
+  *	\param o2 Objet
+  * \return true Si les deux objets sont égaux, false sinon
 */
 bool operator==(Objet& o1, Objet& o2){
 	return o1.nom==o2.nom;
@@ -92,11 +92,11 @@ bool operator==(Objet& o1, Objet& o2){
 
 
 /**
-  *	@brief Fonction de recherche dans une liste
-  *	@param itDebut Itérateur de début d'une liste
-  *	@param itFin Itérateur de fin d'une liste
-  *	@param valeur Adresse de la valeur a trouver
-  * @return Place dans la liste si trouvé, taille de la liste sinon
+  *	\brief Fonction de recherche dans une liste
+  *	\param itDebut Itérateur de début d'une liste
+  *	\param itFin Itérateur de fin d'une liste
+  *	\param valeur Adresse de la valeur a trouver
+  * \return Place dans la liste si trouvé, taille de la liste sinon
 */
 list<Objet*>::iterator Recherche(list<Objet*>::iterator itDebut, list<Objet*>::iterator itFin, Objet *valeur){
 	for (auto it = itDebut; it != itFin; it ++){
@@ -109,7 +109,7 @@ list<Objet*>::iterator Recherche(list<Objet*>::iterator itDebut, list<Objet*>::i
 
 
 /**
-  *	@brief Affiche la liste de tous les crafts possibles en partant d'un objet
+  *	\brief Affiche la liste de tous les crafts possibles en partant d'un objet
 */
 void Objet::afficherSuccessionGlob(){
     list<Objet*> aVisiter ;
