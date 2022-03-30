@@ -1,7 +1,7 @@
 #include <iostream>
 //#include "reseau.hpp"
 //#include "matrice.hpp"
-#include "transfoDirect.hpp"
+#include "Reseau1.hpp"
 #include <string>
 using namespace std;
 
@@ -108,26 +108,11 @@ using namespace std;
 // }
 
 void transfoDirect(){
-	Direct d1;
-	// d1.ajouterObjet("Bois");
-	// d1.ajouterObjet("Planche");
-	// d1.ajouterObjet("Bâton");
-	// d1.ajouterObjet("Torche");
-	// d1.ajouterObjet("Épée");
-	// d1.ajouterObjet("Pioche");
-	// d1.ajouterObjet("Barrière");
-	// d1.ajouterObjet("Portail");
-	// d1.ajouterObjet("Échelle");
-	// d1.ajouterObjet("Charbon");
-	// d1.ajouterObjet("Bibliothèque");
-	// d1.ajouterObjet("Coffre");
-	// d1.ajouterObjet("Porte");
-	// d1.ajouterObjet("Table");
-
+	Reseau1 d1;
 	d1.insertCraft("Bois",{"Bâton","Planche"});
 	d1.insertCraft("Bâton",{"Torche","Épée","Pioche","Échelle"});
 	d1.insertCraft("Épée",{"Pioche"});
-	d1.insertCraft("Pioche",{"Epée","Bâton"});
+	d1.insertCraft("Pioche",{"Épée","Bâton"});
 	d1.insertCraft("Échelle",{"Bâton"});
 	d1.insertCraft("Barrière",{"Portail"});
 	d1.insertCraft("Planche",{"Bâton","Charbon","Bibliothèque","Coffre","Porte","Table"});
@@ -135,52 +120,23 @@ void transfoDirect(){
 	d1.insertCraft("Coffre",{"Bibliothèque"});
 	d1.insertCraft("Porte",{"Planche","Table"});
 	d1.insertCraft("Table",{"Planche"});
-	d1.insertCraft("Torche",{"stop"});
 	// d1.supprimerObjet("Table");
 	// d1.supprimerObjet("Planche");
 	// d1.supprimerObjet("Coffre");
 	// d1.supprimerObjet("Bois");
 	// d1.supprimerObjet("Bâton");
 	// d1.supprimerObjet("Bibliothèque");
-	// d1.afficherObjet();
-	// d1.afficherObjetCraft();
+	//d1.afficherObjet();
+	//d1.afficherObjetCraft();
 
-    d1.appCheminIndirect("Bois");
+    // d1.appCheminIndirect("Bois");
+    // d1.appCheminIndirect("Pioche");
+    // d1.appCheminIndirect("Charbon");
 
-	// d1.ajouterCraft("Bois","Bâton");
-	// d1.ajouterCraft("Bois","Planche");
-
-	// d1.ajouterCraft("Bâton","Torche");
-	// d1.ajouterCraft("Bâton","Épée");
-	// d1.ajouterCraft("Bâton","Pioche");
-	// d1.ajouterCraft("Bâton","Échelle");
-
-	// d1.ajouterCraft("Épée","Pioche");
-
-	// d1.ajouterCraft("Pioche","Épée");
-	// d1.ajouterCraft("Pioche","Bâton");
-
-	// d1.ajouterCraft("Échelle","Bâton");
-
-	// d1.ajouterCraft("Barrière","Portail");
-
-	// d1.ajouterCraft("Planche","Bâton");
-	// d1.ajouterCraft("Planche","Charbon");
-	// d1.ajouterCraft("Planche","Bibliothèque");
-	// d1.ajouterCraft("Planche","Coffre");
-	// d1.ajouterCraft("Planche","Porte");
-	// d1.ajouterCraft("Planche","Table");
-
-	// d1.ajouterCraft("Bibliothèque","Coffre");
-
-	// d1.ajouterCraft("Coffre","Bibliothèque");
-
-	// d1.ajouterCraft("Porte","Planche");
-	// d1.ajouterCraft("Porte","Table");
-
-	// d1.ajouterCraft("Table","Planche");
-
-	// d1.afficherCraft("Bibliothèque");
+	d1.ajouterCraft("Bibliothèque","oui");
+	d1.ajouterCraft("Bibliothèque","oui");
+	d1.ajouterCraft("Bibliothèque","oui");
+	d1.afficherObjetCraftPrec("Bibliothèque");
 }
 
 
