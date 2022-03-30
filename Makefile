@@ -2,7 +2,7 @@
 CC=g++
 
 #CFLAGS : les options de compilation  (en C++ moderne, voir les warning,...)
-CFLAGS= -std=c++17 -Wall -ansi -pedantic
+CFLAGS= -std=c++17 -Wall
 
 # les fichiers sources : tous les fichiers présents dans src/
 SRC=$(wildcard src/*.cpp)
