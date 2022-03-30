@@ -22,7 +22,6 @@ public:
 	std::vector<Objet*> getCrafts();
 	void afficherSuccessionGlob();
 };
-	std::vector<Objet*>::iterator Recherche(std::vector<Objet*>::iterator itDebut, std::vector<Objet*>::iterator itFin, Objet *valeur);
 	std::list<Objet*>::iterator Recherche(std::list<Objet*>::iterator itDebut, std::list<Objet*>::iterator itFin, Objet *valeur);
 
 
