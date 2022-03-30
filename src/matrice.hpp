@@ -1,3 +1,13 @@
+/**
+ * @file matrice.hpp
+ * @author Eloan ANDRE
+ * @brief Implemente un réseau à l'aide d'une classe Matrice contenant un tableau 2 dimensions de booleen (True quand le craft existe)
+ * @version 0.1
+ * @date 2022-03-30
+ * 
+ * @copyright Copyright (c) 2022
+ * 
+ */
 #ifndef MATRICE_HPP
 #define MATRICE_HPP
 #include <string>
@@ -18,6 +28,9 @@ class Matrice{
         void afficherCraftsuccessifGlob(std::string o);
         std::vector<std::string> afficherCraftsuccessif(std::string o,std::vector<std::string> visited);
 };
+
+
+
 
 
 
