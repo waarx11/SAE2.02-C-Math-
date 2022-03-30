@@ -135,16 +135,11 @@ void Exo4(){
 	m2.afficherCraft("Table");
 
 	m2.afficherCraftsuccessifGlob("Bois");
+	cout<< "Suppression de Planche" << endl;
 	m2.supprimerObjet("Planche");
 	m2.afficherCraftsuccessifGlob("Bois");
 
-	for(int pos=0;pos<int(m2.tableauObjet.size());pos++){
-		for(int pos2=0;pos2<int(m2.tableauObjet.size());pos2++)
-		{
-			cout<<m2.matriceCraft[pos][pos2]<<" ";
-		}
-		cout<<endl;
-	}
+
 } 
 
 
