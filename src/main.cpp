@@ -2,6 +2,7 @@
 #include "reseau.hpp"
 #include "matrice.hpp" 
 #include "Reseau1.hpp" 
+#include "Reseau2.hpp" 
 #include <string>
 using namespace std;
 
@@ -157,33 +158,73 @@ void Exo1(){
 	d1.insertCraft("Coffre",{"Bibliothèque"});
 	d1.insertCraft("Porte",{"Planche","Table"});
 	d1.insertCraft("Table",{"Planche"});
+	d1.afficherObjet();
+	d1.afficherObjetCraft();
+
+    d1.appCheminIndirect("Bois");
+    // d1.appCheminIndirect("Bâton");
+    // d1.appCheminIndirect("Épée");
+    // d1.appCheminIndirect("Pioche");
+    // d1.appCheminIndirect("Échelle");
+	// d1.appCheminIndirect("Barrière");
+	// d1.appCheminIndirect("Planche");
+	// d1.appCheminIndirect("Bibliothèque");
+	// d1.appCheminIndirect("Coffre");
+	// d1.appCheminIndirect("Porte");
+	// d1.appCheminIndirect("Table");
+
+	d1.afficherObjetCraftPrec("Bibliothèque");
+	// d1.afficherObjetCraftPrec("Pioche");
+	// d1.afficherObjetCraftPrec("Coffre");
 	// d1.supprimerObjet("Table");
 	// d1.supprimerObjet("Planche");
 	// d1.supprimerObjet("Coffre");
 	// d1.supprimerObjet("Bois");
 	// d1.supprimerObjet("Bâton");
-	// d1.supprimerObjet("Bibliothèque");
-	// d1.afficherObjet();
-	// d1.afficherObjetCraft();
-
-    d1.appCheminIndirect("Bois");
-    d1.appCheminIndirect("Bâton");
-    d1.appCheminIndirect("Épée");
-    d1.appCheminIndirect("Pioche");
-    d1.appCheminIndirect("Échelle");
-	d1.appCheminIndirect("Barrière");
-	d1.appCheminIndirect("Planche");
-	d1.appCheminIndirect("Bibliothèque");
-	d1.appCheminIndirect("Coffre");
-	d1.appCheminIndirect("Porte");
-	d1.appCheminIndirect("Table");
-
-	d1.afficherObjetCraftPrec("Bibliothèque");
+	d1.supprimerObjet("Bibliothèque");
 }
 
+void Exo2(){
+	Reseau2 d1;
+	d1.insertCraft("Bois",{"Bâton","Planche"});
+	d1.insertCraft("Bâton",{"Torche","Épée","Pioche","Échelle"});
+	d1.insertCraft("Épée",{"Pioche"});
+	d1.insertCraft("Pioche",{"Épée","Bâton"});
+	d1.insertCraft("Échelle",{"Bâton"});
+	d1.insertCraft("Barrière",{"Portail"});
+	d1.insertCraft("Planche",{"Bâton","Charbon","Bibliothèque","Coffre","Porte","Table"});
+	d1.insertCraft("Bibliothèque",{"Coffre"});
+	d1.insertCraft("Coffre",{"Bibliothèque"});
+	d1.insertCraft("Porte",{"Planche","Table"});
+	d1.insertCraft("Table",{"Planche"});
+	d1.afficherObjet();
+	d1.afficherObjetCraft();
+
+    d1.appCheminIndirect("Bois");
+    // d1.appCheminIndirect("Bâton");
+    // d1.appCheminIndirect("Épée");
+    // d1.appCheminIndirect("Pioche");
+    // d1.appCheminIndirect("Échelle");
+	// d1.appCheminIndirect("Barrière");
+	// d1.appCheminIndirect("Planche");
+	// d1.appCheminIndirect("Bibliothèque");
+	// d1.appCheminIndirect("Coffre");
+	// d1.appCheminIndirect("Porte");
+	// d1.appCheminIndirect("Table");
+
+	d1.afficherObjetCraftPrec("Bibliothèque");
+	// d1.supprimerObjet("Table");
+	// d1.supprimerObjet("Planche");
+	// d1.supprimerObjet("Coffre");
+	// d1.supprimerObjet("Bois");
+	// d1.supprimerObjet("Bâton");
+	d1.supprimerObjet("Pioche");
+}
 
 int main(){
 	Exo1();
+	cout << "\n------------------------------------------------------------------\n" << endl;
+	Exo2();
 	cout << "\n------------------------------------------------------------------\n" << endl;
 	Exo3();
 	cout << "\n------------------------------------------------------------------\n" << endl;

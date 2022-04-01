@@ -1,6 +1,6 @@
 /**
- * @file Reseau1.cpp
- * @author Verdier Nathan
+ * @file Reseau2.cpp
+ * @author Verdier Nathan, Baptiste Bonneau, Eloan andre
  * @brief crée une map d'objet, parcours tout les objet crée, et les attributs, affiche tout les transformation direct et indirect d'un objet 
  * @date 2022-03-30
  */
@@ -8,16 +8,16 @@
 #include <algorithm>
 #include <string>
 #include <list>
-#include "Reseau1.hpp"
+#include "Reseau2.hpp"
 using namespace std;
 
-vector<string> Reseau1::listCraftIndirectVisited;
+vector<string> Reseau2::listCraftIndirectVisited;
 
 /**
  * @brief Constructeur de reseau 1
  * 
  */
-Reseau1::Reseau1(){}
+Reseau2::Reseau2(){}
 
 /**
  * @brief insert dans une map un string comme key de le map et une liste de string comme attribue de cette map
@@ -25,7 +25,7 @@ Reseau1::Reseau1(){}
  * @param o string destiner a devinir la key de la map mapDesTransfo
  * @param l1 liste de string qui devientdra les attributs de la map mapDesTransfo
  */
-void Reseau1::insertCraft(string o, list<string> l1)
+void Reseau2::insertCraft(string o, list<string> l1)
 {
     list<string>::iterator itfind;
     if (mapDesTransfo.size()==0)
@@ -56,7 +56,7 @@ void Reseau1::insertCraft(string o, list<string> l1)
  * @brief Affiche tout les objets existant
  * 
  */
-void Reseau1::afficherObjet() const
+void Reseau2::afficherObjet() const
 {
     cout << "Voici tout les objets crée :" << endl;
     for(auto obj : mapDesTransfo)
@@ -68,13 +68,10 @@ void Reseau1::afficherObjet() const
  * @brief affiche tout les objets de la map et fait appel a la fonction afficherCraft en donnant les attribues de chaque objet
  * 
  */
-void Reseau1::afficherObjetCraft() const
+void Reseau2::afficherObjetCraft() const
 {
     for(auto it : mapDesTransfo)
-    {
-        cout << "Voici les crafts pour l'objets " << it.first << " :" << endl;
-        this->afficherCraft(it.second);
-    }
+        this->afficherCraft(it.first,it.second);
 }
 
 /**
@@ -82,15 +79,12 @@ void Reseau1::afficherObjetCraft() const
  * 
  * @param o string
  */
-void Reseau1::afficherObjetCraftPrec(string o) const
+void Reseau2::afficherObjetCraftPrec(string o) const
 {
     for(auto it : mapDesTransfo)
     {
         if (it.first==o)
-        {
-            cout << "Voici les crafts pour l'objets " << it.first << " :" << endl;
-            this->afficherCraft(it.second);
-        }
+            this->afficherCraft(it.first,it.second);
     }
 }
 
@@ -99,10 +93,11 @@ void Reseau1::afficherObjetCraftPrec(string o) const
  * 
  * @param l1 liste de string
  */
-void Reseau1::afficherCraft(list<string> l1) const
+void Reseau2::afficherCraft(string o,list<string> l1) const
 {
+    cout << "Chemin direct " << o << " :" << endl;
     for (auto it : l1)
-        cout << "\t" << it << endl;
+        cout << "\t\t{ " << o << " -> " << it << " }" << endl;
     cout<<endl;
 }
 
@@ -111,12 +106,12 @@ void Reseau1::afficherCraft(list<string> l1) const
  * 
  * @param o string, nom de l'objet
  */
-void Reseau1::supprimerObjet(std::string o)
+void Reseau2::supprimerObjet(std::string o)
 {
     map<string,list<string>>::iterator it;
     it = mapDesTransfo.find(o);
     mapDesTransfo.erase(it);
-    cout << "Objet " << o << " supprimer avec succès!"<<endl;
+    cout << "Objet " << o << " supprimer avec succès!"<<endl<<endl;
 }
 
 /**
@@ -124,16 +119,19 @@ void Reseau1::supprimerObjet(std::string o)
  * 
  * @param o string, nom de l'objet
  */
-void Reseau1::appCheminIndirect(string o)
+void Reseau2::appCheminIndirect(string o)
 {
     for (auto it=mapDesTransfo.begin(); it!=mapDesTransfo.end(); ++it)
         if (o==it->first)
         {
-            cout << "Voici le chemin indirect de l'objet : " << o << endl;
+            setAffichage.insert(pair<string,string>{o,*(it->second.begin())});
             cheminIndirect(it->second);
-	        cout << endl << endl;
         }
-    Reseau1::listCraftIndirectVisited = {};
+    cout << "Chemin indirect " << o << " :" << endl;
+    for(auto it=--(setAffichage.end()); it!=--(setAffichage.begin()); --it)
+        cout<< "\t\t{ " << it->first << " -> " << it->second << " }" << endl;
+    cout<<endl;
+    Reseau2::listCraftIndirectVisited = {};
 }
 
 /**
@@ -141,7 +139,7 @@ void Reseau1::appCheminIndirect(string o)
  * 
  * @param l1 liste de string 
  */
-void Reseau1::cheminIndirect(list<string> l1)
+void Reseau2::cheminIndirect(list<string> l1)
 {
     list<string>::iterator itfind;
     map<string,list<string>>::iterator itfind2;
@@ -158,12 +156,14 @@ void Reseau1::cheminIndirect(list<string> l1)
 
         if (l1.size()==0) return;
 
-        cout << *l1.begin() << ", ";
         listCraftIndirectVisited.push_back(*l1.begin());
         itfind2 = mapDesTransfo.find(*l1.begin());
         
         if (itfind2 != mapDesTransfo.end())
+        {
+            setAffichage.insert(pair<string,string>{*l1.begin(),*(itfind2->second.begin())});
             cheminIndirect(itfind2->second);
+        }
     }
 }
 
@@ -173,7 +173,7 @@ void Reseau1::cheminIndirect(list<string> l1)
  * @param obj string qui correspond a un nom d'objet a rajouter
  * @param at string qui correspond a un nom attribut a rajouter
  */
-void Reseau1::ajouterCraft(std::string obj, std::string const at)
+void Reseau2::ajouterCraft(std::string obj, std::string const at)
 {
     list<string>::iterator it2;
     for (auto it : mapDesTransfo)

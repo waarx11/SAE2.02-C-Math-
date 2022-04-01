@@ -1,26 +1,29 @@
 /**
- * @file Reseau1.hpp
+ * @file Reseau2.hpp
  * @author Verdier Nathan
  * @brief 
  * @date 2022-03-30
  */
-#ifndef RESEAU1_HPP
-#define RESEAU1_HPP
+#ifndef RESEAU2_HPP
+#define RESEAU2_HPP
 #include <string>
 #include <list>
 #include <vector>
 #include <map>
+#include <set>
+//#include <pair>
 #include <iostream>
 
-class Reseau1{
+class Reseau2{
     std::map<std::string,std::list<std::string>> mapDesTransfo;
+    std::set<std::pair<std::string,std::string>> setAffichage;
     public:
         static std::vector<std::string> listCraftIndirectVisited;
-        Reseau1();
+        Reseau2();
         void insertCraft(std::string o, std::list<std::string> l1);
         void afficherObjet() const;
         void afficherObjetCraft() const;
-        void afficherCraft(std::list<std::string>) const;
+        void afficherCraft(std::string o, std::list<std::string>) const;
         void appCheminIndirect(std::string o);
         void cheminIndirect(std::list<std::string> l1);
         void afficherObjetCraftPrec(std::string o) const;
