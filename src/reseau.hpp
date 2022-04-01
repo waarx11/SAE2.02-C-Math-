@@ -1,3 +1,9 @@
+/**
+ * \file reseau.cpp
+ * \brief Exercice 3
+ * \author Baptiste Bonneau
+ * \date 30/03/2022
+*/
 #ifndef RESEAU_HPP
 #define RESEAU_HPP
 #include <string>

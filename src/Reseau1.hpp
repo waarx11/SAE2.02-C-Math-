@@ -1,7 +1,7 @@
 /**
  * @file Reseau1.hpp
  * @author Verdier Nathan
- * @brief 
+ * @brief Implemente un réseau à l'aide d'une classe Reseau1
  * @date 2022-03-30
  */
 #ifndef RESEAU1_HPP

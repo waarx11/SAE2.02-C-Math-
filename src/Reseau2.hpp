@@ -1,7 +1,7 @@
 /**
  * @file Reseau2.hpp
  * @author Verdier Nathan
- * @brief 
+ * @brief Implemente un réseau à l'aide d'une classe Reseau2
  * @date 2022-03-30
  */
 #ifndef RESEAU2_HPP
@@ -11,7 +11,6 @@
 #include <vector>
 #include <map>
 #include <set>
-//#include <pair>
 #include <iostream>
 
 class Reseau2{
